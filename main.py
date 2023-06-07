@@ -3,37 +3,25 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from libgen import slibgen
 import time
 import easygui
 
 PATH = (r"C:\Users\Amir\Documents\Downloads\chromedriver.exe")
 driver = webdriver.Chrome(PATH)
+driver.quit
 
+type = easygui.choicebox("","BookAIO",["Book","Paper"])
 
-driver.get("https://libgen.is/")
-btitle = easygui.enterbox("Book Title?")
-
-search = driver.find_element(By.ID, value= "searchform")
-search.send_keys(btitle)
-search.send_keys(Keys.RETURN)
-time.sleep(1)
-
-try:
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.LINK_TEXT, "[1]"))
-    )
-except:
-    print("None found")
+if type == "Book":
+   slibgen()
+elif type == "Paper":
+    driver.get("https://sci-hub.se/")
+    search = driver.find_element(By.ID, value="request")
+    search.send_keys("https://doi.org/10.1016/j.econedurev.2013.08.001")
     time.sleep(1)
-    driver.quit()
-
-link = driver.find_element(By.LINK_TEXT, value = "[1]")
-link.send_keys(Keys.RETURN)
-
-time.sleep(2)
-
-
-download = driver.find_element(By.LINK_TEXT, value = "GET")
-download.send_keys(Keys.RETURN)
-
-time.sleep(5)
+    search.send_keys(Keys.RETURN)
+    time.sleep(2)
+    download = driver.find_element(By.ID, value="button")       #download button can't be seen in the main html
+    download.send_keys(Keys.RETURN)
+    time.sleep(10)
