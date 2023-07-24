@@ -12,9 +12,9 @@ PATH = (r"C:\Users\Amir\Documents\Downloads\chromedriver.exe")
 driver = webdriver.Chrome(PATH)
 driver.quit
 
-options = Options()
-options.add_argument('--headless=new')
-driver = webdriver.Chrome(r"C:\Users\Amir\Documents\Downloads\chromedriver.exe", options=options)
+# options = Options()
+# options.add_argument('--headless=new')
+# driver = webdriver.Chrome(r"C:\Users\Amir\Documents\Downloads\chromedriver.exe", options=options)         #headless mode
 
 type = easygui.choicebox("","BookAIO",["Book","Paper"])
 
