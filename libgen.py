@@ -10,9 +10,9 @@ import easygui
 PATH = (r"C:\Users\Amir\Documents\Downloads\chromedriver.exe")
 driver = webdriver.Chrome(PATH)
 
-options = Options()
-options.add_argument('--headless=new')
-driver = webdriver.Chrome(r"C:\Users\Amir\Documents\Downloads\chromedriver.exe", options=options)
+# options = Options()
+# options.add_argument('--headless=new')
+# driver = webdriver.Chrome(r"C:\Users\Amir\Documents\Downloads\chromedriver.exe", options=options)    #headless mode
 
 def slibgen():
     driver.get("https://libgen.is/")
