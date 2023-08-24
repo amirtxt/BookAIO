@@ -10,7 +10,7 @@ import time
 import easygui
 
 
-PATH = (r"C:\Users\Amir\Documents\Downloads\chromedriver.exe")
+PATH = (r"C:\Users\shark\Downloads\chromedriver.exe")
 driver = webdriver.Chrome(PATH)
 driver.quit
 
